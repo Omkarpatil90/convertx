@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f8f5">
+    <meta name="description" content="A clear, easy-to-use workspace for everyday PDF tasks. Convert, organize, and edit files right in your browser.">
+    <title>Paperwise — Simple tools for your documents</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mammoth@1.8.0/mammoth.browser.min.js"></script>
+    <script defer src="https://unpkg.com/docx@8.5.0/build/index.umd.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Paperwise home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>paperwise<span class="brand-period">.</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#tools">Explore tools</a>
+        <a href="#how-it-works">How it works</a>
+      </nav>
+      <a class="privacy-note" href="#privacy"><span class="privacy-dot"></span> Files stay on your device</a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="eyebrow-line"></span> A calmer way to work with files</span>
+          <h1 id="hero-title">Your documents,<br><span>in good hands.</span></h1>
+          <p>Everyday PDF tools, thoughtfully brought together. Get the small stuff done and get on with your day.</p>
+          <a class="primary-button hero-button" href="#tools">Find your tool <span aria-hidden="true">↘</span></a>
+          <div class="hero-proof"><span class="proof-avatars" aria-hidden="true"><i>✓</i><i>✓</i><i>✓</i></span><span>Simple by design. Private by default.</span></div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-orbit orbit-one"></div>
+          <div class="art-orbit orbit-two"></div>
+          <div class="paper paper-back"><span></span><span></span><span></span></div>
+          <div class="paper paper-front"><span class="paper-stamp">PDF</span><span></span><span></span><span></span><span></span></div>
+          <div class="art-spark spark-one">✳</div>
+          <div class="art-spark spark-two">✦</div>
+          <div class="art-caption"><span class="caption-dot"></span> Ready when you are</div>
+        </div>
+      </section>
+
+      <section class="tools-section" id="tools" aria-labelledby="tools-title">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow"><span class="eyebrow-line"></span> Your everyday toolkit</span>
+            <h2 id="tools-title">What can we help with?</h2>
+          </div>
+          <label class="search-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 4.2 4.2"></path></svg>
+            <input id="tool-search" type="search" placeholder="Find a tool" aria-label="Find a PDF tool">
+            <kbd>/</kbd>
+          </label>
+        </div>
+        <div class="filter-row" role="group" aria-label="Filter tools">
+          <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">All tools <span>12</span></button>
+          <button class="filter-chip" type="button" data-filter="organize" aria-pressed="false">Organize</button>
+          <button class="filter-chip" type="button" data-filter="convert" aria-pressed="false">Convert</button>
+          <button class="filter-chip" type="button" data-filter="edit" aria-pressed="false">Edit &amp; optimize</button>
+        </div>
+        <div class="tool-grid" id="tool-grid" aria-live="polite"></div>
+        <p class="no-results" id="no-results" hidden>No tools match that search. Try another word.</p>
+      </section>
+
+      <section class="how-section" id="how-it-works" aria-labelledby="how-title">
+        <div class="how-intro">
+          <span class="eyebrow"><span class="eyebrow-line"></span> No learning curve</span>
+          <h2 id="how-title">Three steps.<br>Then you’re done.</h2>
+          <p>No accounts, no complicated setup. Just a little help with your files.</p>
+        </div>
+        <div class="steps">
+          <article class="step-card"><span class="step-number">01</span><span class="step-icon step-upload" aria-hidden="true">↑</span><h3>Choose a tool</h3><p>Pick what you need from the toolkit above.</p></article>
+          <article class="step-card"><span class="step-number">02</span><span class="step-icon step-file" aria-hidden="true">＋</span><h3>Add your files</h3><p>Select a document from your device. It stays right here.</p></article>
+          <article class="step-card"><span class="step-number">03</span><span class="step-icon step-done" aria-hidden="true">↓</span><h3>Save your result</h3><p>Make the change and download your finished file.</p></article>
+        </div>
+      </section>
+
+      <section class="privacy-section" id="privacy">
+        <span class="privacy-shield" aria-hidden="true">✓</span>
+        <div><h2>Your files are yours. Always.</h2><p>Processing happens in your browser. Your documents are never uploaded to a server.</p></div>
+        <span class="privacy-lock">PRIVATE BY DEFAULT</span>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>paperwise<span class="brand-period">.</span></span></a>
+      <p>Small tools for getting things done.</p>
+      <span>Made for the everyday.</span>
+    </footer>
+
+    <dialog class="tool-dialog" id="tool-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-shell">
+        <header class="dialog-header">
+          <div class="dialog-brand"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>paperwise<span class="brand-period">.</span></span></div>
+          <button class="icon-button" id="close-dialog" type="button" aria-label="Close tool">×</button>
+        </header>
+        <div class="dialog-content">
+          <button class="back-link" id="back-to-tools" type="button"><span aria-hidden="true">←</span> All tools</button>
+          <div class="dialog-title-row"><span class="dialog-icon" id="dialog-icon" aria-hidden="true"></span><div><span class="eyebrow" id="dialog-category"></span><h2 id="dialog-title"></h2></div></div>
+          <p class="dialog-description" id="dialog-description"></p>
+          <div id="tool-options"></div>
+          <label class="dropzone" id="dropzone" for="file-input">
+            <input id="file-input" type="file">
+            <span class="upload-icon" aria-hidden="true">↑</span>
+            <span class="dropzone-title">Drop your files here</span>
+            <span class="dropzone-copy">or <span>browse from your device</span></span>
+            <span class="dropzone-limit" id="dropzone-limit">Files are processed on your device</span>
+          </label>
+          <div class="file-list" id="file-list" aria-live="polite"></div>
+          <div class="job-status" id="job-status" role="status" aria-live="polite"></div>
+          <div class="dialog-actions">
+            <button class="primary-button process-button" id="process-button" type="button" disabled>Choose files to continue <span aria-hidden="true">→</span></button>
+            <button class="text-button" id="reset-tool" type="button" hidden>Start over</button>
+          </div>
+          <p class="local-note"><span>✓</span> Your files stay on this device and are never uploaded.</p>
+        </div>
+      </div>
+    </dialog>
+  </body>
+</html>
